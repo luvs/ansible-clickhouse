@@ -63,6 +63,8 @@ clickhouse_quotas_custom: {}
 clickhouse_dbs_default: []
 clickhouse_dbs_custom: []
 
+clickhouse_macros: {}
+
 clickhouse_dbs: "{{ clickhouse_dbs_default + clickhouse_dbs_custom }}"
 
 clickhouse_logger:

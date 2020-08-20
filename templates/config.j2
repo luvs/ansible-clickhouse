@@ -168,7 +168,15 @@
 
          See https://clickhouse.yandex/docs/en/table_engines/replication/#creating-replicated-tables
       -->
+    {% if clickhouse_macros is defined and clickhouse_macros|bool %}
+    <macros incl="macros" optional="true">
+      {% for key, value in clickhouse_macros %}
+      <{{ key }}>{{ value }}</{{ key }}>
+      {% endfor%}
+    </macros>
+    {% else %}
     <macros incl="macros" optional="true" />
+    {% endif %}
 
 
     <!-- Reloading interval for embedded dictionaries, in seconds. Default: 3600. -->
