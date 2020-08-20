@@ -170,7 +170,7 @@
       -->
     {% if clickhouse_macros is defined %}
     <macros incl="macros" optional="true">
-      {% for key, value in clickhouse_macros %}
+      {% for key, value in clickhouse_macros.items() %}
       <{{ key }}>{{ value }}</{{ key }}>
       {% endfor%}
     </macros>
