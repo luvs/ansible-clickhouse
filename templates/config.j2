@@ -168,14 +168,12 @@
 
          See https://clickhouse.yandex/docs/en/table_engines/replication/#creating-replicated-tables
       -->
-    {% if clickhouse_macros is defined and clickhouse_macros is sameas true %}
+    {% if clickhouse_macros is defined %}
     <macros incl="macros" optional="true">
       {% for key, value in clickhouse_macros %}
       <{{ key }}>{{ value }}</{{ key }}>
       {% endfor%}
     </macros>
-    {% else %}
-    <macros incl="macros" optional="true" />
     {% endif %}
 
 
