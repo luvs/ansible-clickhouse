@@ -31,7 +31,7 @@
 
 - name: Config | Create conf folder
   file:
-    path: "{{ clickhouse_path_configdir }}/conf.d"
+    path: "{{ clickhouse_path_configdir }}/config.d"
     state: directory
     owner: clickhouse
     group: clickhouse
@@ -40,7 +40,7 @@
 - name: Config | Generate remote_servers config
   template:
     src: remote_servers.j2
-    dest: "{{ clickhouse_path_configdir }}/conf.d/clickhouse_remote_servers.xml"
+    dest: "{{ clickhouse_path_configdir }}/config.d/clickhouse_remote_servers.xml"
     owner: clickhouse
     group: clickhouse
   notify: restart-ch
@@ -50,7 +50,7 @@
 - name: Config | Generate macros config
   template:
     src: macros.j2
-    dest: "{{ clickhouse_path_configdir }}/conf.d/macros.xml"
+    dest: "{{ clickhouse_path_configdir }}/config.d/macros.xml"
     owner: clickhouse
     group: clickhouse
     mode: 0644
@@ -61,7 +61,7 @@
 - name: Config | Generate zookeeper servers config
   template:
     src: zookeeper-servers.j2
-    dest: "{{ clickhouse_path_configdir }}/conf.d/zookeeper-servers.xml"
+    dest: "{{ clickhouse_path_configdir }}/config.d/zookeeper-servers.xml"
     owner: clickhouse
     group: clickhouse
     mode: 0644
